@@ -1,0 +1,65 @@
+//EXERCISE 2_ItemNo.2 by LEGASPI X AUSMOLO || BSCS3B
+
+import 'package:flutter/material.dart';
+
+TextEditingController __NameC = TextEditingController();
+TextEditingController __PassC = TextEditingController();
+
+String Name = "Wiw";
+String Pass = "Wiw";
+
+void main() => runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.purple[900],
+          title: Text('LEGASPI + AUSMOLO L0G 1N'),
+        ),
+        body: Padding(
+            padding: const EdgeInsets.all(30),
+            child: Column(children: [
+              SizedBox(
+                height: 15,
+              ),
+              TextField(
+                  controller: __NameC,
+                  decoration: InputDecoration(
+                      icon: Icon(Icons.person_add_alt_1_sharp),
+                      //alignLabelWithHint: false,
+                      labelText: ("Name"),
+                      hintText: ("Please Enter Your Name :) "),
+                      border: OutlineInputBorder()),
+                  onChanged: (text) {
+                    print('Namechange Update --> $text');
+                  }),
+              SizedBox(
+                height: 60,
+              ),
+              TextField(
+                  controller: __PassC,
+                  decoration: InputDecoration(
+                    icon: Icon(Icons.security_update_rounded),
+                    alignLabelWithHint: true,
+                    labelText: ("Password"),
+                    hintText: ("Your Password Please :> "),
+                    border: OutlineInputBorder(),
+                  ),
+                  obscureText: true,
+                  onChanged: (text) {
+                    print('Passchange Update --> $text');
+                  }),
+              SizedBox(
+                height: 45,
+              ),
+              OutlinedButton(
+                onPressed: () {
+                  print(__NameC.text +
+                      " with password " +
+                      __PassC.text +
+                      " attempted to log in.");
+                },
+                child: Text(
+                  "LOG IN",
+                ),
+              ),
+            ])))));
